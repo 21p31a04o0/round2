@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        p{
+            color:blue;
+            font-size: 30px;
+
+        }
+        #left{
+            position: relative;
+            right:600px;
+            bottom:690px;
+            font-size: 50px;
+            color:pink;
+        }
+        #right{
+            position: relative;
+            left:650px;
+            bottom:470px;
+            font-size: 50px;
+            color:pink;
+        }
+        #h{
+            position: relative;
+            bottom: 400px;
+            font-size:40px;
+            color: pink;
+
+        }
+        body{
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <center> <h1 style="color:pink;font-size:50px">Rock Paper Scissors</h1>
+        <br>
+        <span onclick="h('rock')"><img src="rock.jpg" height="120px" width="120px" style="margin-right:60px;" ></span>
+        <span onclick="h('paper')"><img src="paper.jpg" height="120px" width="120px" style="margin-right:30px"></span>
+        <span onclick="h('scissor')"><img src="scissor.jpg" height="120px" width="120px" style="margin-right:30px"></span><br><br>
+        
+
+    <!-- <button onclick="h('rock')">rock</button> -->
+    <!-- <button onclick="h('paper')">paper</button> -->
+    <!-- <button onclick="h('scissor')">scissor</button><br><br> -->
+    <p> Your choice</p>
+    <button id="b3" style="height:70px;
+            width:150px;
+            margin-right:10px;
+            border-radius:20px;
+            border:2px solid pink;
+            font-size:30px;
+            color:white;
+            text-align: center;
+            background-color:pink;"></button><br><br>
+            <div class="score">  
+            <div class="playerScore">
+                <h2 id="right">YOU</h2>
+                <p class="p-count count" id="right">0</p>
+  
+            </div>       
+            <div class="computerScore">
+                <h2 id="left">PC</h2>
+                <p class="c-count count" id="left">0</p>
+  
+            </div>
+        </div>
+
+    <span  id="h"></span>
+    
+<script type="text/javascript">
+    let computerScore=0;
+    let playerScore=0;
+    const c=["rock","paper","scissor"]
+    let r=Math.floor(Math.random()*c.length);
+    //console.log(c[r]);
+    let b=document.getElementById("b2")
+    b.innerText=c[r];
+    function h(harika){
+        let k=document.getElementById("b3")
+        let a=document.getElementById("h")
+        const playerScoreBoard = document.querySelector('.p-count');
+        const computerScoreBoard = document.querySelector('.c-count');
+        k.innerText=harika;
+        if (c[r]=="scissor" && harika=="paper"){
+            a.innerText="Computer won:"+" computer choice is"+" "+c[r]
+            computerScore++;
+          computerScoreBoard.textContent = computerScore;
+      }
+        if(c[r]=="paper" && harika=="rock"){
+            a.innerText="You Won:"+" computer choice is"+" "+c[r]
+            playerScore++;
+            playerScoreBoard.textContent = playerScore;
+        }
+        if(c[r]=="paper" && harika=="scissor"){
+            a.innerText="You Won:"+" computer choice is"+" "+c[r]
+            playerScore++;
+            playerScoreBoard.textContent = playerScore;
+        }
+        if(c[r]=="rock" && harika=="paper"){
+            a.innerText="You Won:"+" computer choice is"+" "+c[r]
+            playerScore++;
+            playerScoreBoard.textContent = playerScore;
+        }
+        if(c[r]=="scissor" && harika=="rock"){
+            a.innerText="You Won:"+" computer choice is"+" "+c[r]
+            playerScore++;
+            playerScoreBoard.textContent = playerScore;
+        }
+        if(c[r]=="rock" && harika=="scissor"){
+            a.innerText="Computer won:"+" computer choice is"+" "+c[r]
+            computerScore++;
+          computerScoreBoard.textContent = computerScore;
+        }
+        if(c[r]==harika){
+            a.innerText="computer choice is also "+" "+c[r]
+            a.innerText="DRAW!"
+        }
+    }
+</script>
+</body>
+</html>
